@@ -33,6 +33,24 @@ Add select2 to any angular2 form (currently only for static options non ajax sel
 #### files
 * select2.ts
 
+#### requirements
+* jQuery
+* Select2
+
+##### typings.json
+```json
+{
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#b13a8c64ffd368b4528f222f404f67b4c7d76cfb",
+    "select2": "github:DefinitelyTyped/DefinitelyTyped/select2/select2.d.ts#26d1679100e15788fe7e981c1b746f38b820509a"
+  }
+}
+```
+
+
+
 #### usage
 ```html
 <form #some_form="ngForm" (ngSubmit)="onSubmit()">
@@ -61,6 +79,10 @@ It assumes your web server returns a Page (I am using java with spring boot so m
 #### files
 * infinite-scroll.ts
 * page.ts
+* jquery.scroll-parent.js
+
+#### requirements
+* jQuery
 
 ### usage
 ```html

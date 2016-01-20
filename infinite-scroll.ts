@@ -10,9 +10,13 @@ import {Page, PageRequest} from './page';
     }
 })
 export class InfiniteScroll<T> implements OnInit {
+	// The service that loads the next page should push to the data to this observable
     @Input() pageObservable: Observable<Page<T>>;
+	// Infinite scroll will trigger this to load the next page
     @Input() nextPageObserver: Observer<PageRequest>;
+	// Once we receive a page content will be pushed here
     @Input() pageContentObserver: Observer<Array<T>>;
+	// Optional: load a new page X pixels from the bottom
     @Input() triggerOffset: number = 100;
 
     private _loading: boolean = false;
