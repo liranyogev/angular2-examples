@@ -125,3 +125,20 @@ export class TestComponent {
 	}
 }
 ```
+
+### Global Angular2 pipes
+#### usage
+Sometimes you may wish a pipe will be available globally without having to declare it on each @Component.
+
+In your bootstrap file we extend the PLATFORM_PIPES to include our new pipe as well as the COMMON_PIPES which is what PLATFORM_PIPES had before.
+```typescript
+import {bootstrap} from 'angular2/platform/browser';
+import {AppComponent} from './app.component';
+import {ROUTER_PROVIDERS} from 'angular2/router';
+import {HTTP_BINDINGS} from 'angular2/http';
+import {SomePipe} from './some.pipe';
+import {Provider, PLATFORM_PIPES} from 'angular2/core';
+import {COMMON_PIPES} from 'angular2/common';
+
+bootstrap(AppComponent, [ROUTER_PROVIDERS, HTTP_BINDINGS, new Provider(PLATFORM_PIPES, {useValue: [SomePipe,...COMMON_PIPES], multi: true})]);
+```
